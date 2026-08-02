@@ -233,7 +233,7 @@ function LogoLockup() {
       <div className="personal-logo-row">
         <span className="personal-one">
           <img className="personal-one-word" src="/personal-one-word-figma.svg" alt="One" />
-          <span className="personal-one-cross" aria-hidden="true">+</span>
+          <img className="personal-one-cross" src="/one-cross-icon.svg" alt="" />
         </span>
         <span className="personal-flow">
           <img src="/personal-flow-figma.svg" alt="Flow" />
