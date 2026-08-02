@@ -107,52 +107,109 @@ const chapterCards = [
 const boardProjects = [
   {
     no: '01.',
+    route: '/work/b',
     title: '부산광역시 생활지도 공간정보시스템',
     subtitle: 'BUSAN LIFE MAP SPATIAL INFORMATION SYSTEM',
     tags: ['#어플리케이션 개발', '#디자인총괄', '#기획총괄', '#개발관리', '#MOBILE'],
   },
   {
     no: '02.',
+    route: '/work/c',
     title: '서울아리수본부 사이버 고객센터 홈페이지',
     subtitle: 'SEOUL ARISU CYBER CUSTOMER CENTER HOMEPAGE',
     tags: ['#서울아리수본부', '#CX CONSULTING', '#UI UX DESIGN', '#PDA', '#RESPONSIVE'],
   },
   {
     no: '03.',
+    route: '/work/d',
     title: '한화 보훈 캠페인 마이크로 페이지',
     subtitle: 'HANWHA VETERANS CAMPAIGN MICROPAGE',
     tags: ['#다시찾아야할태극기', '#121,723', '#국가보훈의날', '#RESPONSIVE'],
   },
   {
     no: '04.',
+    route: '/work/e',
     title: '머크코리아 안전출입관리 시스템',
     subtitle: 'MERCK KOREA SECURITY SYSTEM',
     tags: ['#입출입시스템', '#출입관리', '#3D', '#ASAP', '#PC'],
   },
   {
     no: '05.',
+    route: '/work/f',
     title: '대웅제약 브랜드 홈페이지',
     subtitle: 'DAEWOONG PHARMACEUTICAL CENTER HOMEPAGE',
     tags: ['#브랜드홈페이지', '#STORYTELLING', '#UI UX DESIGN', '#RESPONSIVE'],
   },
   {
     no: '06.',
+    route: '/work/g',
     title: '대웅바이오 브랜드 홈페이지',
     subtitle: 'DAEWOONG BIO BRAND HOMEPAGE',
     tags: ['#대웅바이오', '#글래스모피즘', '#3D', '#ASAP', '#ADAPTIVE'],
   },
   {
     no: '07.',
+    route: '/work/h',
     title: 'LG D&O K-Hub 사내 지식·협업 플랫폼',
     subtitle: 'LG D&O KNOWLEDGE AND COLLABORATION PLATFORM',
     tags: ['#디자인총괄', '#지식공유', '#ATOMIC DESIGN', '#PC', '#ADMIN'],
   },
   {
     no: '08.',
+    route: '/work/i',
     title: 'P:KET 인플루언서 마케팅 어플리케이션',
     subtitle: 'P:KET INFLUENCER MARKETING APPLICATIONS',
     tags: ['#어플리케이션 개발', '#디자인총괄', '#기획총괄', '#개발관리', '#MOBILE'],
   },
+];
+const workPages = [
+  { row: 'b', name: 'B-01', slug: 'b-01', src: '/work-pages/b-01.png' },
+  { row: 'b', name: 'B-02', slug: 'b-02', src: '/work-pages/b-02.png' },
+  { row: 'b', name: 'B-03', slug: 'b-03', src: '/work-pages/b-03.png' },
+  { row: 'b', name: 'B-04', slug: 'b-04', src: '/work-pages/b-04.png' },
+  { row: 'b', name: 'B-05', slug: 'b-05', src: '/work-pages/b-05.png' },
+  { row: 'b', name: 'B-06', slug: 'b-06', src: '/work-pages/b-06-a.png' },
+  { row: 'b', name: 'B-06 detail', slug: 'b-06-2', src: '/work-pages/b-06-b.png' },
+  { row: 'c', name: 'C-01', slug: 'c-01', src: '/work-pages/c-01.png' },
+  { row: 'c', name: 'C-02', slug: 'c-02', src: '/work-pages/c-02.png' },
+  { row: 'c', name: 'C-03', slug: 'c-03', src: '/work-pages/c-03.png' },
+  { row: 'c', name: 'C-04', slug: 'c-04', src: '/work-pages/c-04.png' },
+  { row: 'c', name: 'C-05', slug: 'c-05', src: '/work-pages/c-05.png' },
+  { row: 'd', name: 'D-01', slug: 'd-01', src: '/work-pages/d-01.png' },
+  { row: 'd', name: 'D-02', slug: 'd-02', src: '/work-pages/d-02.png' },
+  { row: 'd', name: 'D-03', slug: 'd-03', src: '/work-pages/d-03.png' },
+  { row: 'd', name: 'D-04', slug: 'd-04', src: '/work-pages/d-04.png' },
+  { row: 'e', name: 'E-01', slug: 'e-01', src: '/work-pages/e-01.png' },
+  { row: 'e', name: 'E-02', slug: 'e-02', src: '/work-pages/e-02-a.png' },
+  { row: 'e', name: 'E-02 detail', slug: 'e-02-2', src: '/work-pages/e-02-b.png' },
+  { row: 'e', name: 'E-03', slug: 'e-03', src: '/work-pages/e-03.png' },
+  { row: 'e', name: 'E-04', slug: 'e-04', src: '/work-pages/e-04.png' },
+  { row: 'f', name: 'F-01', slug: 'f-01', src: '/work-pages/f-01.png' },
+  { row: 'f', name: 'F-02', slug: 'f-02', src: '/work-pages/f-02.png' },
+  { row: 'f', name: 'F-03', slug: 'f-03', src: '/work-pages/f-03.png' },
+  { row: 'f', name: 'F-04', slug: 'f-04', src: '/work-pages/f-04.png' },
+  { row: 'f', name: 'F-05', slug: 'f-05', src: '/work-pages/f-05.png' },
+  { row: 'g', name: 'G-01', slug: 'g-01', src: '/work-pages/g-01.png' },
+  { row: 'g', name: 'G-02', slug: 'g-02', src: '/work-pages/g-02.png' },
+  { row: 'g', name: 'G-03', slug: 'g-03', src: '/work-pages/g-03.png' },
+  { row: 'g', name: 'G-04', slug: 'g-04', src: '/work-pages/g-04.png' },
+  { row: 'g', name: 'G-05', slug: 'g-05', src: '/work-pages/g-05.png' },
+  { row: 'h', name: 'H-01', slug: 'h-01', src: '/work-pages/h-01.png' },
+  { row: 'h', name: 'H-02', slug: 'h-02', src: '/work-pages/h-02.png' },
+  { row: 'h', name: 'H-03', slug: 'h-03', src: '/work-pages/h-03.png' },
+  { row: 'h', name: 'H-04', slug: 'h-04', src: '/work-pages/h-04.png' },
+  { row: 'h', name: 'H-05', slug: 'h-05', src: '/work-pages/h-05.png' },
+  { row: 'h', name: 'H-06', slug: 'h-06', src: '/work-pages/h-06.png' },
+  { row: 'i', name: 'I-01', slug: 'i-01', src: '/work-pages/i-01.png' },
+  { row: 'i', name: 'I-02', slug: 'i-02', src: '/work-pages/i-02.png' },
+  { row: 'i', name: 'I-03', slug: 'i-03', src: '/work-pages/i-03.png' },
+  { row: 'i', name: 'I-04', slug: 'i-04', src: '/work-pages/i-04.png' },
+  { row: 'i', name: 'I-05', slug: 'i-05', src: '/work-pages/i-05.png' },
+  { row: 'i', name: 'I-06', slug: 'i-06', src: '/work-pages/i-06.png' },
+  { row: 'i', name: 'I-07', slug: 'i-07', src: '/work-pages/i-07.png' },
+  { row: 'i', name: 'I-08', slug: 'i-08', src: '/work-pages/i-08.png' },
+  { row: 'i', name: 'I-09', slug: 'i-09', src: '/work-pages/i-09.png' },
+  { row: 'i', name: 'I-10', slug: 'i-10', src: '/work-pages/i-10.png' },
 ];
 const process = [
   {
@@ -233,7 +290,7 @@ function LogoLockup() {
       <div className="personal-logo-row">
         <span className="personal-one">
           <img className="personal-one-word" src="/personal-one-word-figma.svg" alt="One" />
-          <img className="personal-one-cross" src="/one-cross-icon.svg" alt="" />
+          <img className="personal-one-cross" src="/personal-one-star-figma.svg" alt="" />
         </span>
         <span className="personal-flow">
           <img src="/personal-flow-figma.svg" alt="Flow" />
@@ -360,7 +417,7 @@ function BoardProjectRow({ project }) {
           </div>
         </div>
       </div>
-      <button className="board-arrow" type="button" aria-label={`${project.title} 보기`}>↗</button>
+      <a className="board-arrow" href={project.route} aria-label={`${project.title} 보기`}>↗</a>
     </article>
   );
 }
@@ -470,9 +527,30 @@ function CategoryCardSection() {
   );
 }
 
+function WorkRoutePage({ pages, title }) {
+  return (
+    <main className="work-route" aria-label={`${title.toUpperCase()} portfolio detail`}>
+      {pages.map((page, index) => (
+        <section className="work-section" aria-label={page.name} key={page.slug}>
+          <img src={page.src} alt={`${page.name} portfolio page`} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
+        </section>
+      ))}
+    </main>
+  );
+}
+
 function App() {
+  const [path, setPath] = useState(window.location.pathname);
+
+  useEffect(() => {
+    const handlePopState = () => setPath(window.location.pathname);
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
   useEffect(() => {
     const sections = document.querySelectorAll('.section');
+    if (!sections.length) return undefined;
     if (window.location.hash) {
       requestAnimationFrame(() => {
         document.querySelector(window.location.hash)?.scrollIntoView();
@@ -493,8 +571,17 @@ function App() {
     return () => observer.disconnect();
   }, []);
 
+  const workMatch = path.match(/^\/work\/([a-i](?:-\d{2}(?:-2)?)?)$/);
+  if (workMatch) {
+    const routeSlug = workMatch[1];
+    const pages = routeSlug.length === 1
+      ? workPages.filter((page) => page.row === routeSlug)
+      : workPages.filter((page) => page.slug === routeSlug);
+    if (pages.length) return <WorkRoutePage pages={pages} title={routeSlug} />;
+  }
+
   return (
-    <main>
+    <main className="home-main">
       <IntroSection />
       <PersonalSection />
       <CategoryCardSection />
