@@ -232,12 +232,19 @@ function LogoLockup() {
     <div className="personal-logo" aria-label="One Flow Standard">
       <div className="personal-logo-row">
         <span className="personal-one">
-          <img src="/personal-one.svg" alt="One" />
-          <img className="personal-one-cross" src="/one-cross-icon.svg" alt="" />
+          <img className="personal-one-word" src="/personal-one-word-figma.svg" alt="One" />
+          <img className="personal-one-cross" src="/personal-one-star-figma.svg" alt="" />
         </span>
-        <span className="personal-flow">Flow</span>
+        <span className="personal-flow" aria-label="Flow">
+          <span className="flow-cinzel">Fl</span>
+          <span className="flow-newyork">o</span>
+          <span className="flow-cinzel">w</span>
+        </span>
       </div>
-      <div className="personal-standard">Standard</div>
+      <div className="personal-standard" aria-label="Standard">
+        <img className="personal-standard-sta" src="/personal-standard-sta-figma.svg" alt="" />
+        <img className="personal-standard-ndard" src="/personal-standard-ndard-figma.svg" alt="" />
+      </div>
     </div>
   );
 }
