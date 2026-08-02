@@ -430,7 +430,7 @@ function CategoryCardSection() {
       <Background section="category" />
       <div className="category-gradient" />
       <h2 className="chapters-title">
-        <img src="/chapters-title.svg" alt="Chapters" />
+        <img src="/chapters-title-image.svg" alt="Chapters" />
       </h2>
       <div className="view-toggle" aria-label="View mode">
         <button className={view === 'card' ? 'active' : ''} type="button" onClick={() => setView('card')}><span aria-hidden="true">•••</span>Card view</button>
