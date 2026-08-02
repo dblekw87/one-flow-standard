@@ -342,9 +342,9 @@ function ChapterCard({ card, position }) {
   );
 }
 
-function BoardProjectRow({ project }) {
+function BoardProjectRow({ project, index }) {
   return (
-    <article className="board-row">
+    <article className="board-row" style={{ '--line-index': index + 1 }}>
       <div className="board-row-main">
         <div className="board-no">{project.no}</div>
         <div className="board-text">
@@ -367,10 +367,10 @@ function BoardView() {
   return (
     <div className="board-view" data-node-id="276:2833">
       <div className="board-column">
-        {left.map((project) => <BoardProjectRow project={project} key={project.no} />)}
+        {left.map((project, index) => <BoardProjectRow project={project} index={index} key={project.no} />)}
       </div>
       <div className="board-column">
-        {right.map((project) => <BoardProjectRow project={project} key={project.no} />)}
+        {right.map((project, index) => <BoardProjectRow project={project} index={index} key={project.no} />)}
       </div>
     </div>
   );
