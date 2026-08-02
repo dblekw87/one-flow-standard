@@ -165,7 +165,7 @@ const boardProjects = [
 const figmaFileUrl = 'https://www.figma.com/design/gKEOORSDrssOmvK9MuB306/PortFolio';
 const withFigmaUrl = (page) => ({
   ...page,
-  figmaUrl: `${figmaFileUrl}?node-id=${page.nodeId.replace(':', '-')}&m=dev`,
+  figmaUrl: page.figmaUrl ?? `${figmaFileUrl}?node-id=${page.nodeId.replace(':', '-')}&m=dev`,
 });
 const workPages = [
   { row: 'b', name: 'B-01', slug: 'b-01', nodeId: '248:5117', src: '/work-pages/b-01.png' },
@@ -180,7 +180,7 @@ const workPages = [
   { row: 'c', name: 'C-03', slug: 'c-03', nodeId: '182:12021', src: '/work-pages/c-03.png' },
   { row: 'c', name: 'C-04', slug: 'c-04', nodeId: '3:4886', src: '/work-pages/c-04.png' },
   { row: 'c', name: 'C-05', slug: 'c-05', nodeId: '2:4669', src: '/work-pages/c-05.png' },
-  { row: 'd', name: 'D-01', slug: 'd-01', nodeId: '180:7351', src: '/work-pages/d-01.png' },
+  { row: 'd', name: 'D-01', slug: 'd-01', nodeId: '180:7351', src: '/work-pages/d-01.png', linkBox: { left: '28.958333%', top: '58.611111%' } },
   { row: 'd', name: 'D-02', slug: 'd-02', nodeId: '194:9590', src: '/work-pages/d-02.png' },
   { row: 'd', name: 'D-03', slug: 'd-03', nodeId: '194:9692', src: '/work-pages/d-03.png' },
   { row: 'd', name: 'D-04', slug: 'd-04', nodeId: '195:9772', src: '/work-pages/d-04.png' },
@@ -205,7 +205,15 @@ const workPages = [
   { row: 'h', name: 'H-04', slug: 'h-04', nodeId: '40:4747', src: '/work-pages/h-04.png' },
   { row: 'h', name: 'H-05', slug: 'h-05', nodeId: '37:8348', src: '/work-pages/h-05.png' },
   { row: 'h', name: 'H-06', slug: 'h-06', nodeId: '194:9565', src: '/work-pages/h-06.png' },
-  { row: 'i', name: 'I-01', slug: 'i-01', nodeId: '1:7144', src: '/work-pages/i-01.png' },
+  {
+    row: 'i',
+    name: 'I-01',
+    slug: 'i-01',
+    nodeId: '1:7144',
+    src: '/work-pages/i-01.png',
+    figmaUrl: `${figmaFileUrl}?node-id=1%3A7144&m=dev`,
+    linkBox: { left: '30.052083%', top: '78.888889%' },
+  },
   { row: 'i', name: 'I-02', slug: 'i-02', nodeId: '1:7179', src: '/work-pages/i-02.png' },
   { row: 'i', name: 'I-03', slug: 'i-03', nodeId: '174:11132', src: '/work-pages/i-03.png' },
   { row: 'i', name: 'I-04', slug: 'i-04', nodeId: '177:9570', src: '/work-pages/i-04.png' },
@@ -539,7 +547,14 @@ function WorkRoutePage({ pages, title }) {
         <section className="work-section" aria-label={page.name} key={page.slug}>
           <div className="work-frame">
             <img src={page.src} alt={`${page.name} portfolio page`} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
-            <a className="work-figma-link" href={page.figmaUrl} target="_blank" rel="noreferrer" aria-label={`${page.name} Figma Link`} />
+            <a
+              className="work-figma-link"
+              href={page.figmaUrl}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`${page.name} Figma Link`}
+              style={page.linkBox ?? undefined}
+            />
           </div>
         </section>
       ))}

@@ -254,8 +254,8 @@ body{min-width:320px;overflow-x:hidden;background:#000}
   .board-subtitle{font-size:10px;line-height:1.2;white-space:normal}
   .board-tag{padding:6px 8px;font-size:10px}
   .board-arrow{flex-basis:38px;width:38px;height:38px;font-size:16px}
-  .work-section{height:100svh;min-height:100svh;place-items:start center;padding:0;background:#000}
-  .work-frame{width:100vw;height:56.25vw;max-height:100svh}
+  .work-section{height:auto;min-height:0;place-items:start center;padding:0;background:#000}
+  .work-frame{width:100vw;height:auto;aspect-ratio:16/9;max-height:none}
 }
 
 @media(max-width:480px){
@@ -265,7 +265,7 @@ body{min-width:320px;overflow-x:hidden;background:#000}
   .tagline{top:49%;left:50%;width:100%;grid-template-columns:1fr;justify-items:center;gap:8px;padding:0 22px;text-align:center;transform:translate(-50%,-50%)}
   .tagline p{width:100%;text-align:center}
   .divider{width:64px}
-  .work-frame{width:100vw;height:56.25vw}
+  .work-frame{width:100vw;height:auto;aspect-ratio:16/9}
 }
 
 @media(max-height:620px) and (orientation:landscape){
