@@ -173,22 +173,23 @@ main::after{content:"";position:absolute;inset:0;z-index:0;background:radial-gra
   .personal-standard{font-size:36px}
   .personal-subcopy{margin-top:48px;height:auto;font-size:18px}
   .personal-description{margin-top:22px;width:auto;font-size:14px}
-  .personal-tags{margin-top:64px;gap:24px}
-  .tag-group h3{font-size:18px}
-  .chips{gap:6px}
+  .personal-tags{margin-top:72px;gap:34px}
+  .tag-group h3{font-size:18px;margin-bottom:16px}
+  .chips{gap:9px 8px}
   .chip{min-height:27px;max-width:100%;padding:6px 8px;font-size:10.5px;letter-spacing:0}
-  .personal-process{margin-top:72px;gap:32px}
+  .personal-process{margin-top:72px;gap:42px}
   .personal-one,.personal-flow,.personal-standard,.personal-subcopy,.personal-description,.tag-group,.process-item{animation:none;animation-play-state:running;opacity:1;transform:none}
   .personal-one,.personal-flow,.personal-standard{height:1em}
   .process-item{grid-template-columns:54px 1fr;min-height:auto}
   .process-no,.process-copy h3{font-size:21px}
+  .process-copy{gap:16px}
   .process-eyebrow{font-size:13px}
-  .process-body{font-size:14px}
+  .process-body{font-size:14px;line-height:1.65}
   .category-section{height:auto;min-height:100svh;padding:72px 22px 96px}
   .chapters-title,.view-toggle,.chapter-stage,.chapter-nav,.board-view{position:relative;left:auto;top:auto;transform:none}
-  .chapters-title{width:min(70vw,320px);height:auto;aspect-ratio:508/79}
-  .view-toggle{justify-content:center;margin-top:28px}
-  .view-toggle button{height:34px;font-size:12px;gap:8px}
+  .chapters-title{width:min(70vw,320px);height:auto;aspect-ratio:508/79;margin-inline:auto}
+  .view-toggle{justify-content:center;margin-top:28px;gap:12px}
+  .view-toggle button{height:38px;font-size:12px;gap:10px;padding:0 14px}
   .chapter-stage{position:relative;width:100%;height:414px;margin-top:44px;display:block;overflow:visible;perspective:none}
   .chapter-card{position:absolute;left:50%;top:0;width:min(270px,69vw);height:386px;max-width:none;margin:0;filter:none;opacity:0;pointer-events:none}
   .chapter-card.center{display:flex;left:50%;top:0;transform:translateX(-50%);filter:none;opacity:1;z-index:5;pointer-events:auto}
