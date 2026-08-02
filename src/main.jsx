@@ -212,7 +212,7 @@ function IntroSection() {
       <div className="standard-title" data-node-id="276:2476" aria-label="One Standard">
         <div className="standard-one">
           <img className="standard-one-union" src="/one-union.svg" alt="One" />
-          <img className="standard-one-star" src="/one-star.svg" alt="" />
+          <img className="standard-one-star" src="/one-cross-icon.svg" alt="" />
         </div>
         <img className="standard-word" src="/standard-vector.svg" alt="Standard" />
       </div>
@@ -233,6 +233,7 @@ function LogoLockup() {
       <div className="personal-logo-row">
         <span className="personal-one">
           <img src="/personal-one.svg" alt="One" />
+          <img className="personal-one-cross" src="/one-cross-icon.svg" alt="" />
         </span>
         <span className="personal-flow">Flow</span>
       </div>
@@ -428,7 +429,9 @@ function CategoryCardSection() {
     <section id="chapters" className="section category-section" data-node-id="276:2585" aria-label="Chapters card view">
       <Background section="category" />
       <div className="category-gradient" />
-      <h2 className="chapters-title">Chapters</h2>
+      <h2 className="chapters-title">
+        <img src="/chapters-title.svg" alt="Chapters" />
+      </h2>
       <div className="view-toggle" aria-label="View mode">
         <button className={view === 'card' ? 'active' : ''} type="button" onClick={() => setView('card')}><span aria-hidden="true">•••</span>Card view</button>
         <button className={view === 'board' ? 'active' : ''} type="button" onClick={() => setView('board')}><span aria-hidden="true">▦</span>Board view</button>
