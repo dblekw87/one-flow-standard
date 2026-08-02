@@ -383,6 +383,7 @@ function CategoryCardSection() {
     return Number.isFinite(initialCard) ? Math.min(Math.max(initialCard, 0), cardCount - 1) : 0;
   });
   const [enteringCard, setEnteringCard] = useState(null);
+  const [isCarouselPaused, setIsCarouselPaused] = useState(false);
   const previousCard = () => setActiveCard((current) => {
     setEnteringCard((current - 4 + cardCount) % cardCount);
     return (current - 1 + cardCount) % cardCount;
@@ -412,6 +413,17 @@ function CategoryCardSection() {
     return () => window.clearTimeout(timer);
   }, [enteringCard]);
 
+  useEffect(() => {
+    if (view !== 'card' || isCarouselPaused) return undefined;
+    const timer = window.setInterval(() => {
+      setActiveCard((current) => {
+        setEnteringCard((current + 4) % cardCount);
+        return (current + 1) % cardCount;
+      });
+    }, 3000);
+    return () => window.clearInterval(timer);
+  }, [cardCount, isCarouselPaused, view]);
+
   return (
     <section id="chapters" className="section category-section" data-node-id="276:2585" aria-label="Chapters card view">
       <Background section="category" />
@@ -423,7 +435,14 @@ function CategoryCardSection() {
       </div>
       {view === 'card' ? (
         <>
-          <div className="chapter-stage" data-node-id="276:2606">
+          <div
+            className="chapter-stage"
+            data-node-id="276:2606"
+            onMouseEnter={() => setIsCarouselPaused(true)}
+            onMouseLeave={() => setIsCarouselPaused(false)}
+            onFocus={() => setIsCarouselPaused(true)}
+            onBlur={() => setIsCarouselPaused(false)}
+          >
             {chapterCards.map((card, index) => (
               <ChapterCard
                 card={card}

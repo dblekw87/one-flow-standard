@@ -151,9 +151,10 @@ main{width:100%}
 
 @media(max-width:900px){
   .photo{min-width:760px}
-  .flow-title{top:clamp(58px,13svh,104px);left:clamp(18px,6vw,48px);width:clamp(180px,58vw,360px)}
-  .standard-title{right:clamp(18px,6vw,48px);bottom:clamp(76px,14svh,128px);width:min(86vw,560px)}
-  .tagline{grid-template-columns:max-content minmax(34px,12vw) max-content;gap:clamp(8px,2.5vw,14px);font-size:clamp(12px,3.25vw,15px);letter-spacing:.02em}
+  .flow-title,.standard-title,.tagline p,.tagline .subheader,.divider{animation:none;animation-play-state:running;opacity:1;transform:none}
+  .flow-title{top:72px;left:22px;width:min(72vw,310px)}
+  .standard-title{right:22px;bottom:86px;width:min(88vw,520px)}
+  .tagline{top:52%;grid-template-columns:max-content 42px max-content;gap:10px;font-size:12px;letter-spacing:.02em}
   .divider,.divider img{width:100%}
   .personal-section{height:auto;min-height:100svh;padding:64px 22px 80px}
   .personal-left,.personal-process{position:relative;left:auto;top:auto;width:auto}
@@ -165,8 +166,11 @@ main{width:100%}
   .personal-description{margin-top:22px;width:auto;font-size:14px}
   .personal-tags{margin-top:64px;gap:24px}
   .tag-group h3{font-size:18px}
-  .chip{min-height:28px;padding:7px 10px;font-size:12px}
+  .chips{gap:6px}
+  .chip{min-height:27px;max-width:100%;padding:6px 8px;font-size:10.5px;letter-spacing:0}
   .personal-process{margin-top:72px;gap:32px}
+  .personal-one,.personal-flow,.personal-standard,.personal-subcopy,.personal-description,.tag-group,.process-item{animation:none;animation-play-state:running;opacity:1;transform:none}
+  .personal-one,.personal-flow,.personal-standard{height:1em}
   .process-item{grid-template-columns:54px 1fr;min-height:auto}
   .process-no,.process-copy h3{font-size:21px}
   .process-eyebrow{font-size:13px}
@@ -177,13 +181,40 @@ main{width:100%}
   .chapters-title::before{left:calc(50% - 106px);top:14px;width:16px;height:16px}
   .view-toggle{justify-content:center;margin-top:28px}
   .view-toggle button{height:34px;font-size:12px}
-  .chapter-stage{width:100%;height:auto;margin-top:44px;display:grid;gap:18px;perspective:none}
-  .chapter-card,.chapter-card.center,.chapter-card.left-inner,.chapter-card.left-near,.chapter-card.left-far,.chapter-card.right-inner,.chapter-card.right-near,.chapter-card.right-far{position:relative;left:auto;top:auto;width:100%;max-width:330px;margin:0 auto;transform:none;filter:none;opacity:1}
-  .chapter-card:not(.center){display:none}
-  .chapter-card-media{height:150px}
+  .chapter-stage{position:relative;width:100%;height:414px;margin-top:44px;display:block;overflow:visible;perspective:none}
+  .chapter-card{position:absolute;left:50%;top:0;width:min(270px,69vw);height:386px;max-width:none;margin:0;filter:none;opacity:0;pointer-events:none}
+  .chapter-card.center{display:flex;left:50%;top:0;transform:translateX(-50%);filter:none;opacity:1;z-index:5;pointer-events:auto}
+  .chapter-card.left-inner{display:flex;left:50%;top:14px;transform:translateX(calc(-50% - 132px)) rotate(-5deg);filter:blur(3px);opacity:.55;z-index:4}
+  .chapter-card.right-inner{display:flex;left:50%;top:14px;transform:translateX(calc(-50% + 132px)) rotate(5deg);filter:blur(3px);opacity:.55;z-index:4}
+  .chapter-card.left-near,.chapter-card.left-far,.chapter-card.right-near,.chapter-card.right-far,.chapter-card.hidden{display:none;opacity:0}
+  .chapter-card-media{height:140px;flex-basis:140px;padding:14px}
+  .chapter-meta{left:14px;top:14px;gap:4px;font-size:7px;letter-spacing:-.35px}
+  .chapter-logo{width:138px;height:38px}
+  .chapter-logo-busan{width:143px;height:37px}
+  .chapter-logo-arisu{width:133px;height:38px}
+  .chapter-logo-hanwha{width:130px;height:36px}
+  .chapter-logo-merck{width:137px;height:22px}
+  .chapter-logo-daewoong{width:125px;height:27px}
+  .chapter-logo-daewoongbio{width:125px;height:35px}
+  .chapter-logo-lgdno{width:127px;height:30px}
+  .chapter-card-body{height:246px;gap:12px;padding:24px 22px}
   .chapter-card h3{font-size:30px}
-  .chapter-subtitle,.chapter-desc{font-size:12px}
+  .chapter-subtitle{font-size:12px}
+  .chapter-desc{height:72px;font-size:12px;line-height:1.5;letter-spacing:-.6px}
+  .chapter-service{height:60px;flex-basis:60px;padding-top:14px}
+  .chapter-service strong{font-size:10px}
+  .chapter-service p{height:24px;margin-top:10px;gap:4px;font-size:10px;letter-spacing:-.2px}
+  .chapter-card-busan .chapter-card-body{gap:8px}
+  .chapter-card-busan h3{font-size:28px;margin-bottom:8px}
+  .chapter-card-busan .chapter-subtitle{font-size:11.5px}
+  .chapter-card-busan .chapter-desc{height:61px;font-size:10.8px;line-height:1.42;letter-spacing:-.54px}
+  .chapter-card-busan .chapter-service{height:55px;flex-basis:55px;padding-top:12px}
+  .chapter-card-busan .chapter-service p{margin-top:8px;font-size:9.2px}
   .chapter-nav{justify-content:center;margin-top:28px}
+  .chapter-nav button{width:40px;height:40px}
+  .chapter-nav button img{width:20px;height:20px}
+  .chapter-progress{width:226px}
+  .chapter-progress span{width:60px;transform:translateX(calc(var(--progress, 0) * 166px))}
   .board-view{width:100%;height:auto;margin-top:44px;display:grid;grid-template-columns:1fr;gap:0}
   .board-column{height:auto;padding:0}
   .board-column + .board-column{border-top:0}
@@ -201,7 +232,8 @@ main{width:100%}
   .photo{min-width:620px;opacity:.9}
   .flow-title{top:clamp(48px,11svh,78px);width:min(66vw,260px)}
   .standard-title{bottom:clamp(72px,12svh,100px);width:88vw}
-  .tagline{top:49%;grid-template-columns:1fr;justify-items:center;gap:8px;text-align:center}
+  .tagline{top:49%;left:50%;width:100%;grid-template-columns:1fr;justify-items:center;gap:8px;padding:0 22px;text-align:center;transform:translate(-50%,-50%)}
+  .tagline p{width:100%;text-align:center}
   .divider{width:64px}
 }
 
