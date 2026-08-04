@@ -459,7 +459,7 @@ function BoardView() {
 }
 
 function CategoryCardSection() {
-  const [view, setView] = useState(() => new URLSearchParams(window.location.search).get('view') === 'board' ? 'board' : 'card');
+  const [view, setView] = useState(() => new URLSearchParams(window.location.search).get('view') === 'card' ? 'card' : 'board');
   const cardCount = chapterCards.length;
   const [activeCard, setActiveCard] = useState(() => {
     const initialCard = Number.parseInt(new URLSearchParams(window.location.search).get('card') ?? '0', 10);
@@ -515,8 +515,8 @@ function CategoryCardSection() {
         <img src="/chapters-title-image.svg" alt="Chapters" />
       </h2>
       <div className="view-toggle" aria-label="View mode">
-        <button className={view === 'card' ? 'active' : ''} type="button" onClick={() => setView('card')}><span aria-hidden="true">•••</span>Card view</button>
         <button className={view === 'board' ? 'active' : ''} type="button" onClick={() => setView('board')}><span aria-hidden="true">▦</span>Board view</button>
+        <button className={view === 'card' ? 'active' : ''} type="button" onClick={() => setView('card')}><span aria-hidden="true">•••</span>Card view</button>
       </div>
       {view === 'card' ? (
         <>
