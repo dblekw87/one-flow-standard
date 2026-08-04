@@ -590,11 +590,7 @@ function CategoryCardSection() {
 function EndSection() {
   return (
     <section id="end" className="section end-section" data-node-id="1:7127" aria-label="Portfolio contact end">
-      <div className="end-background" aria-hidden="true">
-        <img src="/end-background.png" alt="" />
-        <div className="end-noise" />
-        <div className="end-shadow" />
-      </div>
+      <Background section="category" />
       <div className="end-content">
         <header className="end-top">
           <p>Portfolio</p>
