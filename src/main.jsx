@@ -2,7 +2,7 @@ import { StrictMode, useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles.css';
 
-const backgroundAsset = '/background.webp';
+const backgroundAsset = '/work-pages/home-background-full.webp';
 const lineAsset = 'https://www.figma.com/api/mcp/asset/ed0d7d6c-b186-4e10-b686-601048330378';
 
 const expertise = ['#UI/UX', '#DESIGN SYSTEM', '#BRANDING', '#GRAPHIC PRESENTATION', '#EDITORIAL'];
@@ -304,17 +304,10 @@ const process = [
   },
 ];
 
-function Background({ section = 'start' }) {
+function HomeBackground() {
   return (
-    <div className="background" aria-hidden="true">
-      <div className="black-fill" />
-      <div className={`photo photo-${section}`}>
-        <img src={backgroundAsset} alt="" />
-        <div className="grain" />
-        <div className={`fade fade-${section}`} />
-        {section === 'start' ? <div className="intro-gradient" /> : null}
-        {section === 'personal' ? <div className="personal-gradient" /> : null}
-      </div>
+    <div className="home-background" aria-hidden="true">
+      <img src={backgroundAsset} alt="" />
     </div>
   );
 }
@@ -322,7 +315,6 @@ function Background({ section = 'start' }) {
 function IntroSection() {
   return (
     <section className="section intro-section" data-node-id="276:2469" aria-label="One Flow intro">
-      <Background />
       <div className="flow-title" data-node-id="276:2473" aria-label="One Flow">
         <img src="/flow-outline.svg" alt="One Flow" />
       </div>
@@ -391,7 +383,6 @@ function ProcessItem({ item, index }) {
 function PersonalSection() {
   return (
     <section id="personal" className="section personal-section" data-node-id="276:2491" aria-label="Personal profile">
-      <Background section="personal" />
       <div className="personal-left">
         <LogoLockup />
         <div className="personal-subcopy">
@@ -549,8 +540,6 @@ function CategoryCardSection() {
 
   return (
     <section id="chapters" className="section category-section" data-node-id="276:2585" aria-label="Chapters card view">
-      <Background section="category" />
-      <div className="category-gradient" />
       <h2 className="chapters-title">
         <img src="/chapters-title-image.svg" alt="Chapters" />
       </h2>
@@ -590,7 +579,6 @@ function CategoryCardSection() {
 function EndSection() {
   return (
     <section id="end" className="section end-section" data-node-id="1:7127" aria-label="Portfolio contact end">
-      <Background section="category" />
       <div className="end-content">
         <header className="end-top">
           <p>Portfolio</p>
@@ -731,18 +719,38 @@ function App() {
       });
     }
 
+    const playSection = (section) => {
+      if (section.classList.contains('has-played')) return;
+      section.classList.add('in-view', 'has-played');
+    };
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (!entry.isIntersecting || entry.target.classList.contains('has-played')) return;
-          entry.target.classList.add('in-view', 'has-played');
+          if (!entry.isIntersecting) return;
+          playSection(entry.target);
         });
       },
       { threshold: 0.45 },
     );
+    const earlyObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          playSection(entry.target);
+        });
+      },
+      { threshold: 0.01 },
+    );
 
-    sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
+    sections.forEach((section) => {
+      if (section.id === 'personal') earlyObserver.observe(section);
+      else observer.observe(section);
+    });
+    return () => {
+      observer.disconnect();
+      earlyObserver.disconnect();
+    };
   }, []);
 
   const workMatch = path.match(/^\/work\/([a-z0-9-]+)$/);
@@ -755,6 +763,7 @@ function App() {
 
   return (
     <main className="home-main">
+      <HomeBackground />
       <IntroSection />
       <PersonalSection />
       <CategoryCardSection />
