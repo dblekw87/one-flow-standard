@@ -587,6 +587,52 @@ function CategoryCardSection() {
   );
 }
 
+function EndSection() {
+  return (
+    <section id="end" className="section end-section" data-node-id="1:7127" aria-label="Portfolio contact end">
+      <div className="end-background" aria-hidden="true">
+        <img src="/end-background.png" alt="" />
+        <div className="end-noise" />
+        <div className="end-shadow" />
+      </div>
+      <div className="end-content">
+        <header className="end-top">
+          <p>Portfolio</p>
+          <p>Jeong Dahye</p>
+        </header>
+        <div className="end-main">
+          <h2>E.O.D</h2>
+          <div className="end-copy">
+            <p className="end-kicker">기획, 디자인, 개발</p>
+            <p className="end-title">프로젝트 특성을 다채롭게 고려하는<br />제너럴리스트 정다혜 입니다.</p>
+            <p className="end-body">
+              에이전시와 광고대행사 경험을 통해<br />
+              다양한 사용자군과 비즈니스를 이해하는 능력을 길렀습니다.<br />
+              <br />
+              하나의 제품에 깊이 있게 몰입하여,<br />
+              지속적이고 전략적인 사용자 경험을 설계하고 싶습니다
+            </p>
+          </div>
+        </div>
+        <footer className="end-bottom">
+          <div className="end-services">
+            <p>UI UX</p>
+            <p>Branding</p>
+            <p>Editorial</p>
+          </div>
+          <div className="end-contact">
+            <p>Contact</p>
+            <address>
+              82 10-3422-4150<br />
+              dayis07@naver.com
+            </address>
+          </div>
+        </footer>
+      </div>
+    </section>
+  );
+}
+
 function WorkRoutePage({ pages, title }) {
   const isFullFrame = pages.length === 1 && pages[0].isFullFrame;
   const [prototypeModal, setPrototypeModal] = useState(null);
@@ -716,6 +762,7 @@ function App() {
       <IntroSection />
       <PersonalSection />
       <CategoryCardSection />
+      <EndSection />
     </main>
   );
 }
