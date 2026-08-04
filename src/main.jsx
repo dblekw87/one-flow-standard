@@ -107,56 +107,56 @@ const chapterCards = [
 const boardProjects = [
   {
     no: '01.',
-    route: '/work/b',
+    route: '/work/busan',
     title: '부산광역시 생활지도 공간정보시스템',
     subtitle: 'BUSAN LIFE MAP SPATIAL INFORMATION SYSTEM',
     tags: ['#어플리케이션 개발', '#디자인총괄', '#기획총괄', '#개발관리', '#MOBILE'],
   },
   {
     no: '02.',
-    route: '/work/c',
+    route: '/work/seoul-arisu',
     title: '서울아리수본부 사이버 고객센터 홈페이지',
     subtitle: 'SEOUL ARISU CYBER CUSTOMER CENTER HOMEPAGE',
     tags: ['#서울아리수본부', '#CX CONSULTING', '#UI UX DESIGN', '#PDA', '#RESPONSIVE'],
   },
   {
     no: '03.',
-    route: '/work/d',
+    route: '/work/hanwha',
     title: '한화 보훈 캠페인 마이크로 페이지',
     subtitle: 'HANWHA VETERANS CAMPAIGN MICROPAGE',
     tags: ['#다시찾아야할태극기', '#121,723', '#국가보훈의날', '#RESPONSIVE'],
   },
   {
     no: '04.',
-    route: '/work/e',
+    route: '/work/merck-korea',
     title: '머크코리아 안전출입관리 시스템',
     subtitle: 'MERCK KOREA SECURITY SYSTEM',
     tags: ['#입출입시스템', '#출입관리', '#3D', '#ASAP', '#PC'],
   },
   {
     no: '05.',
-    route: '/work/f',
+    route: '/work/daewoong',
     title: '대웅제약 브랜드 홈페이지',
     subtitle: 'DAEWOONG PHARMACEUTICAL CENTER HOMEPAGE',
     tags: ['#브랜드홈페이지', '#STORYTELLING', '#UI UX DESIGN', '#RESPONSIVE'],
   },
   {
     no: '06.',
-    route: '/work/g',
+    route: '/work/daewoong-bio',
     title: '대웅바이오 브랜드 홈페이지',
     subtitle: 'DAEWOONG BIO BRAND HOMEPAGE',
     tags: ['#대웅바이오', '#글래스모피즘', '#3D', '#ASAP', '#ADAPTIVE'],
   },
   {
     no: '07.',
-    route: '/work/h',
+    route: '/work/lg-dno',
     title: 'LG D&O K-Hub 사내 지식·협업 플랫폼',
     subtitle: 'LG D&O KNOWLEDGE AND COLLABORATION PLATFORM',
     tags: ['#디자인총괄', '#지식공유', '#ATOMIC DESIGN', '#PC', '#ADMIN'],
   },
   {
     no: '08.',
-    route: '/work/i',
+    route: '/work/p-ket',
     title: 'P:KET 인플루언서 마케팅 어플리케이션',
     subtitle: 'P:KET INFLUENCER MARKETING APPLICATIONS',
     tags: ['#어플리케이션 개발', '#디자인총괄', '#기획총괄', '#개발관리', '#MOBILE'],
@@ -167,6 +167,16 @@ const withFigmaUrl = (page) => ({
   ...page,
   figmaUrl: page.figmaUrl ?? `${figmaFileUrl}?node-id=${page.nodeId.replace(':', '-')}&m=dev`,
 });
+const workFramePages = [
+  { slug: 'busan', row: 'b', name: '부산광역시 생활지도', nodeId: '346:2466', src: '/work-pages/b-full.png', isFullFrame: true },
+  { slug: 'seoul-arisu', row: 'c', name: '서울아리수', nodeId: '346:2467', src: '/work-pages/c-full.png', isFullFrame: true },
+  { slug: 'hanwha', row: 'd', name: '한화 보훈 캠페인', nodeId: '346:2468', src: '/work-pages/d-full.png', isFullFrame: true },
+  { slug: 'merck-korea', row: 'e', name: '머크코리아', nodeId: '346:2469', src: '/work-pages/e-full.png', isFullFrame: true },
+  { slug: 'daewoong', row: 'f', name: '대웅제약', nodeId: '346:2470', src: '/work-pages/f-full.png', isFullFrame: true },
+  { slug: 'daewoong-bio', row: 'g', name: '대웅바이오', nodeId: '346:2471', src: '/work-pages/g-full.png', isFullFrame: true },
+  { slug: 'lg-dno', row: 'h', name: 'LG D&O', nodeId: '346:2472', src: '/work-pages/h-full.png', isFullFrame: true },
+  { slug: 'p-ket', row: 'i', name: 'P:KET', nodeId: '346:2473', src: '/work-pages/i-full.png', isFullFrame: true },
+].map(withFigmaUrl);
 const workPages = [
   { row: 'b', name: 'B-01', slug: 'b-01', nodeId: '248:5117', src: '/work-pages/b-01.png' },
   { row: 'b', name: 'B-02', slug: 'b-02', nodeId: '248:5002', src: '/work-pages/b-02.png' },
@@ -548,20 +558,24 @@ function CategoryCardSection() {
 }
 
 function WorkRoutePage({ pages, title }) {
+  const isFullFrame = pages.length === 1 && pages[0].isFullFrame;
+
   return (
-    <main className="work-route" aria-label={`${title.toUpperCase()} portfolio detail`}>
+    <main className={`work-route ${isFullFrame ? 'work-route-full' : ''}`} aria-label={`${title.toUpperCase()} portfolio detail`}>
       {pages.map((page, index) => (
-        <section className="work-section" aria-label={page.name} key={page.slug}>
-          <div className="work-frame">
+        <section className={`work-section ${page.isFullFrame ? 'work-section-full' : ''}`} aria-label={page.name} key={page.slug ?? page.row}>
+          <div className={`work-frame ${page.isFullFrame ? 'work-frame-full' : ''}`}>
             <img src={page.src} alt={`${page.name} portfolio page`} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
-            <a
-              className="work-figma-link"
-              href={page.figmaUrl}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={`${page.name} Figma Link`}
-              style={page.linkBox ?? undefined}
-            />
+            {!page.isFullFrame ? (
+              <a
+                className="work-figma-link"
+                href={page.figmaUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`${page.name} Figma Link`}
+                style={page.linkBox ?? undefined}
+              />
+            ) : null}
           </div>
         </section>
       ))}
@@ -601,12 +615,11 @@ function App() {
     return () => observer.disconnect();
   }, []);
 
-  const workMatch = path.match(/^\/work\/([a-i](?:-\d{2}(?:-2)?)?)$/);
+  const workMatch = path.match(/^\/work\/([a-z0-9-]+)$/);
   if (workMatch) {
     const routeSlug = workMatch[1];
-    const pages = routeSlug.length === 1
-      ? workPages.filter((page) => page.row === routeSlug)
-      : workPages.filter((page) => page.slug === routeSlug);
+    const pages = workFramePages.filter((page) => page.slug === routeSlug)
+      .concat(workPages.filter((page) => page.slug === routeSlug));
     if (pages.length) return <WorkRoutePage pages={pages} title={routeSlug} />;
   }
 
