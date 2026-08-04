@@ -167,13 +167,38 @@ const withFigmaUrl = (page) => ({
   ...page,
   figmaUrl: page.figmaUrl ?? `${figmaFileUrl}?node-id=${page.nodeId.replace(':', '-')}&m=dev`,
 });
+const daewoongPrototypeModal = {
+  closeSrc: '/work-pages/daewoong-modal-close.svg',
+  items: [
+    {
+      triggerBox: { left: '65.538194%', top: '24.722222%', width: '7.083333%', height: '0.58642%' },
+      videoSrc: '/work-pages/daewoong-prototype-b.png',
+      title: '대웅제약 B안',
+    },
+    {
+      triggerBox: { left: '84.322917%', top: '24.722222%', width: '7.083333%', height: '0.58642%' },
+      videoSrc: '/work-pages/daewoong-prototype-c.png',
+      title: '대웅제약 C안',
+    },
+  ],
+};
+const daewoongBioPrototypeModal = {
+  closeSrc: '/work-pages/daewoong-modal-close.svg',
+  items: [
+    {
+      triggerBox: { left: '74.661458%', top: '19.298942%', width: '7.083333%', height: '0.502646%' },
+      videoSrc: '/work-pages/daewoong-bio-prototype.png',
+      title: '대웅바이오 A안',
+    },
+  ],
+};
 const workFramePages = [
   { slug: 'busan', row: 'b', name: '부산광역시 생활지도', nodeId: '346:2466', src: '/work-pages/b-full.png', isFullFrame: true },
   { slug: 'seoul-arisu', row: 'c', name: '서울아리수', nodeId: '346:2467', src: '/work-pages/c-full.png', isFullFrame: true },
   { slug: 'hanwha', row: 'd', name: '한화 보훈 캠페인', nodeId: '346:2468', src: '/work-pages/d-full.png', isFullFrame: true },
   { slug: 'merck-korea', row: 'e', name: '머크코리아', nodeId: '346:2469', src: '/work-pages/e-full.png', isFullFrame: true },
-  { slug: 'daewoong', row: 'f', name: '대웅제약', nodeId: '346:2470', src: '/work-pages/f-full.png', isFullFrame: true },
-  { slug: 'daewoong-bio', row: 'g', name: '대웅바이오', nodeId: '346:2471', src: '/work-pages/g-full.png', isFullFrame: true },
+  { slug: 'daewoong', row: 'f', name: '대웅제약', nodeId: '346:2470', src: '/work-pages/f-full.png', isFullFrame: true, prototypeModal: daewoongPrototypeModal },
+  { slug: 'daewoong-bio', row: 'g', name: '대웅바이오', nodeId: '346:2471', src: '/work-pages/g-full.png', isFullFrame: true, prototypeModal: daewoongBioPrototypeModal },
   { slug: 'lg-dno', row: 'h', name: 'LG D&O', nodeId: '346:2472', src: '/work-pages/h-full.png', isFullFrame: true },
   { slug: 'p-ket', row: 'i', name: 'P:KET', nodeId: '346:2473', src: '/work-pages/i-full.png', isFullFrame: true },
 ].map(withFigmaUrl);
@@ -559,6 +584,22 @@ function CategoryCardSection() {
 
 function WorkRoutePage({ pages, title }) {
   const isFullFrame = pages.length === 1 && pages[0].isFullFrame;
+  const [prototypeModal, setPrototypeModal] = useState(null);
+  const [isPrototypeHovered, setIsPrototypeHovered] = useState(false);
+
+  const closePrototypeModal = () => {
+    setPrototypeModal(null);
+    setIsPrototypeHovered(false);
+  };
+
+  useEffect(() => {
+    if (!prototypeModal) return undefined;
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') closePrototypeModal();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [prototypeModal]);
 
   return (
     <main className={`work-route ${isFullFrame ? 'work-route-full' : ''}`} aria-label={`${title.toUpperCase()} portfolio detail`}>
@@ -566,6 +607,16 @@ function WorkRoutePage({ pages, title }) {
         <section className={`work-section ${page.isFullFrame ? 'work-section-full' : ''}`} aria-label={page.name} key={page.slug ?? page.row}>
           <div className={`work-frame ${page.isFullFrame ? 'work-frame-full' : ''}`}>
             <img src={page.src} alt={`${page.name} portfolio page`} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
+            {page.prototypeModal?.items?.map((item) => (
+              <button
+                className="work-prototype-trigger"
+                type="button"
+                aria-label={`${item.title} prototype modal open`}
+                onClick={() => setPrototypeModal({ ...page.prototypeModal, ...item })}
+                style={item.triggerBox}
+                key={item.videoSrc}
+              />
+            ))}
             {!page.isFullFrame ? (
               <a
                 className="work-figma-link"
@@ -579,6 +630,33 @@ function WorkRoutePage({ pages, title }) {
           </div>
         </section>
       ))}
+      {prototypeModal ? (
+        <div className="prototype-backdrop" role="presentation" onMouseDown={closePrototypeModal}>
+          <div
+            className={`prototype-modal ${isPrototypeHovered ? 'is-hovered' : ''}`}
+            role="dialog"
+            aria-modal="true"
+            aria-label={`${prototypeModal.title} prototype video`}
+            onMouseDown={(event) => event.stopPropagation()}
+            onMouseEnter={() => setIsPrototypeHovered(true)}
+            onMouseLeave={() => setIsPrototypeHovered(false)}
+          >
+            <img
+              className="prototype-video-frame"
+              src={prototypeModal.videoSrc}
+              alt={`${prototypeModal.title} prototype video preview`}
+            />
+            {isPrototypeHovered ? (
+              <div className="prototype-modal-header">
+                <p>{prototypeModal.title}</p>
+                <button type="button" onClick={closePrototypeModal} aria-label="Close prototype modal">
+                  <img src={prototypeModal.closeSrc} alt="" />
+                </button>
+              </div>
+            ) : null}
+          </div>
+        </div>
+      ) : null}
     </main>
   );
 }
