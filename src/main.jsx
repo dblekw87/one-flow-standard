@@ -171,13 +171,18 @@ const daewoongPrototypeModal = {
   closeSrc: '/work-pages/daewoong-modal-close.svg',
   items: [
     {
+      triggerBox: { left: '46.753472%', top: '24.722222%', width: '7.083333%', height: '0.58642%' },
+      videoSrc: '/work-pages/daewoong-prototype-a.mp4',
+      title: '대웅제약 A안',
+    },
+    {
       triggerBox: { left: '65.538194%', top: '24.722222%', width: '7.083333%', height: '0.58642%' },
-      videoSrc: '/work-pages/daewoong-prototype-b.png',
+      videoSrc: '/work-pages/daewoong-prototype-b.mp4',
       title: '대웅제약 B안',
     },
     {
       triggerBox: { left: '84.322917%', top: '24.722222%', width: '7.083333%', height: '0.58642%' },
-      videoSrc: '/work-pages/daewoong-prototype-c.png',
+      videoSrc: '/work-pages/daewoong-prototype-c.mp4',
       title: '대웅제약 C안',
     },
   ],
@@ -187,7 +192,7 @@ const daewoongBioPrototypeModal = {
   items: [
     {
       triggerBox: { left: '74.661458%', top: '19.298942%', width: '7.083333%', height: '0.502646%' },
-      videoSrc: '/work-pages/daewoong-bio-prototype.png',
+      videoSrc: '/work-pages/daewoong-bio-prototype-a.mp4',
       title: '대웅바이오 A안',
     },
   ],
@@ -641,10 +646,15 @@ function WorkRoutePage({ pages, title }) {
             onMouseEnter={() => setIsPrototypeHovered(true)}
             onMouseLeave={() => setIsPrototypeHovered(false)}
           >
-            <img
+            <video
               className="prototype-video-frame"
               src={prototypeModal.videoSrc}
-              alt={`${prototypeModal.title} prototype video preview`}
+              autoPlay
+              muted
+              loop
+              playsInline
+              controls
+              aria-label={`${prototypeModal.title} prototype video`}
             />
             {isPrototypeHovered ? (
               <div className="prototype-modal-header">
